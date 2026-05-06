@@ -1,0 +1,61 @@
+/* Design tokens — Forma Scenes teaser */
+:root {
+  --color-bg: #020408;
+  --color-surface: #141414;
+  --color-text: #d3dae8;
+  --color-muted: #8a8a8a;
+  --color-accent: #e5023d;
+  --color-accent-2: #8b0128;
+
+  --font-display: "Degular", "Inter", system-ui, sans-serif;
+  --font-body: "Roboto", system-ui, sans-serif;
+
+  --text-caption: 0.75rem;
+  --caption-tracking: 0.08em;
+
+  --nav-height: 80px;
+  --content-max: 72rem;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Self-hosted Degular — drop .woff2 files into /assets/fonts/ (see README) */
+@font-face {
+  font-family: "Degular";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Degular"), url("../assets/fonts/Degular-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Degular";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local("Degular Semibold"), url("../assets/fonts/Degular-Semibold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Degular";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Degular Bold"), url("../assets/fonts/Degular-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/Roboto-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/Roboto-Medium.woff2") format("woff2");
+}
