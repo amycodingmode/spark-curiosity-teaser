@@ -957,6 +957,10 @@ body.is-scrolling {
   pointer-events: none;
 }
 
+.space__tagline-accent {
+  color: #e5023d;
+}
+
 .space__content {
   position: relative;
   z-index: 2;
