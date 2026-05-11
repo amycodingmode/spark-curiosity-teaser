@@ -8,37 +8,6 @@
     return mqReduce.matches;
   }
 
-  /**
-   * Hero uses youtube-nocookie + origin to reduce YouTube Error 153; `si` matches your share link.
-   * Src is set in JS so `origin` can be the live page origin on http(s).
-   */
-  function initHeroYouTubeEmbed() {
-    if (isReduced()) return;
-    const iframe = document.querySelector(".hero__embed-frame");
-    if (!iframe) return;
-    if (location.protocol === "file:") {
-      iframe.closest(".hero__embed")?.classList.add("is-paused-reduced");
-      return;
-    }
-    const videoId = "RsXU3gAqR6A";
-    const base = `https://www.youtube-nocookie.com/embed/${videoId}`;
-    const params = new URLSearchParams({
-      si: "Ajur5eTnhHc8n7IM",
-      autoplay: "1",
-      mute: "1",
-      playsinline: "1",
-      loop: "1",
-      playlist: videoId,
-      controls: "0",
-      modestbranding: "1",
-      rel: "0",
-    });
-    if (location.protocol === "http:" || location.protocol === "https:") {
-      params.set("origin", location.origin);
-    }
-    iframe.src = `${base}?${params.toString()}`;
-  }
-
   function setupTabletLayout() {
     if (window.FormaScenes && window.FormaScenes.setupTabletObjectVisibility) {
       window.FormaScenes.setupTabletObjectVisibility();
@@ -47,11 +16,7 @@
 
   function applyReducedMotionUI() {
     document.body.classList.add("motion-reduced");
-    const heroFrame = document.querySelector(".hero__embed-frame");
-    if (heroFrame?.src) {
-      heroFrame.removeAttribute("src");
-    }
-    document.querySelector(".hero__embed")?.classList.add("is-paused-reduced");
+    document.querySelector(".hero__video")?.pause?.();
     document.querySelector(".space__video")?.pause?.();
     document.querySelector(".scenes")?.classList.add("is-reduced");
     /* Same random side-column layout as scroll choreography (hero is skipped separately). */
@@ -250,7 +215,6 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    initHeroYouTubeEmbed();
     setupTabletLayout();
     const lenis = initLenis();
     initNav(lenis);

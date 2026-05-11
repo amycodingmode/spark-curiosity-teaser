@@ -223,29 +223,10 @@ body.is-scrolling {
   overflow: hidden;
 }
 
-/* Hero YouTube: scaled to cover viewport (width/height attrs not used) */
-.hero__embed {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.hero__embed-frame {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 56.25vw;
-  min-width: 177.77vh;
-  min-height: 100vh;
-  border: 0;
-  transform: translate(-50%, -50%);
-}
-
-.hero__embed.is-paused-reduced .hero__embed-frame {
-  display: none;
+.hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero__poster-fallback {
@@ -255,6 +236,11 @@ body.is-scrolling {
     linear-gradient(180deg, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.85) 100%),
     url("../assets/video/hero-poster.jpg") center / cover no-repeat;
   z-index: 0;
+}
+
+.hero__media .hero__video {
+  position: relative;
+  z-index: 1;
 }
 
 .hero__vignette {
